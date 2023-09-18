@@ -13,6 +13,8 @@ RSpec.describe Market do
     @vendor2 = Vendor.new("Ba-Nom-a-Nom")
     @vendor2.stock(@item4, 50)
     @vendor2.stock(@item3, 25)
+    @vendor3 = Vendor.new("Palisade Peach Shack")
+    @vendor3.stock(@item1, 65)
     @market = Market.new("South Pearl Street Farmers Market")
   end
   it 'can initialize' do
@@ -34,6 +36,16 @@ RSpec.describe Market do
       @market.add_vendor(@vendor1)
       @market.add_vendor(@vendor2)
       expect(@market.vendor_names).to eq(["Rocky Mountain Fresh", "Ba-Nom-a-Nom"])
+    end
+  end
+  
+  describe '#vendors_that_sell' do
+    it 'will return a list of vendors that have an item in stock' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @market.add_vendor(@vendor3)
+      expect(@market.vendors_that_sell(@item1)).to eq([@vendor1, @vendor3])
+      expect(@market.vendors_that_sell(@item4)).to eq([@vendor2])
     end
   end
 end
