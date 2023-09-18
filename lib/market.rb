@@ -17,4 +17,14 @@ class Market
   def vendors_that_sell(item)
     @vendors.find_all { |vendor| vendor.check_stock(item) > 0 }
   end
+
+  def sorted_item_list 
+    items = [].flatten
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item|
+        items << item.first.name
+      end
+    end
+    items.uniq.sort! 
+  end
 end
