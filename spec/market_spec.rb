@@ -10,7 +10,7 @@ RSpec.describe Market do
   end
   it 'can initialize' do
     expect(@market).to be_a(Market)
-    expect(@market).to eq("South Pearl Street Farmers Market")
+    expect(@market.name).to eq("South Pearl Street Farmers Market")
     expect(@market.vendors).to eq([])
   end
 end
