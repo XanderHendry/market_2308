@@ -5,4 +5,13 @@ class Vendor
     @name = name
     @inventory = {}
   end
+
+  def stock(item, amount)
+    if @inventory[item].nil?
+      @inventory[item] = amount
+    else
+      @inventory[item] += amount
+    end
+  end
+
 end
