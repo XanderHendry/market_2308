@@ -25,7 +25,7 @@ RSpec.describe Market do
     it 'will add a Vendor to the Markets vendor array' do
       @market.add_vendor(@vendor1)
       @market.add_vendor(@vendor2)
-      expect(@market.vendors).to eq(@vendor1, @vendor2)
+      expect(@market.vendors).to eq([@vendor1, @vendor2])
     end
   end
 end
