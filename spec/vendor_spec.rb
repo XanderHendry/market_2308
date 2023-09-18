@@ -41,7 +41,7 @@ RSpec.describe Vendor do
     it 'will calculate the sum of the price of all items in the inventory * amount' do
       @vendor.stock(@item1, 35)
       @vendor.stock(@item2, 7)
-      expect(@vendor.potential_venenue).to eq(29.75)
+      expect(@vendor.potential_revenue).to eq(29.75)
     end
   end
 end

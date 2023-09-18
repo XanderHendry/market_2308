@@ -21,4 +21,13 @@ class Vendor
       @inventory[item]
     end
   end
+
+  def potential_revenue
+    totals = []
+    @inventory.each do |key, value|
+      price = key.price.tr('$', '').to_f
+      totals << price * value
+    end
+    totals.sum
+  end
 end
