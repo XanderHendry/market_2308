@@ -27,7 +27,7 @@ RSpec.describe Vendor do
     end
   end
 
-  xdescribe '#check_stock' do
+  describe '#check_stock' do
     it 'will return 0 if an item is not in stock' do
     expect(@vendor.check_stock(@item1)).to eq(0)
     end
