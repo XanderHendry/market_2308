@@ -41,8 +41,11 @@ RSpec.describe Market do
   
   describe '#vendors_that_sell' do
     it 'will return a list of vendors that have an item in stock' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @market.add_vendor(@vendor3)
       expect(@market.vendors_that_sell(@item1)).to eq([@vendor1, @vendor3])
-      expect(@market.vendors_that_sell(@item4)).to eq([@market2])
+      expect(@market.vendors_that_sell(@item4)).to eq([@vendor2])
     end
   end
 end
