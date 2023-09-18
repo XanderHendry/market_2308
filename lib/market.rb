@@ -27,4 +27,16 @@ class Market
     end
     items.uniq.sort! 
   end
+
+  def total_inventory
+    total_inventory = {}
+    @vendors.each do |vendor|
+      vendor.inventory.each do |key, value|
+        sellers = vendors_that_sell(key)
+        total_inventory[key] => {quantity: value, vendors: vendors}
+      end
+    end
+    binding.pry
+    total_inventory
+  end
 end
